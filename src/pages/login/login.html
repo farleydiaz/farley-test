@@ -1,0 +1,50 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-offset-4 col-sm-4">
+      <div class="login">
+        <div class="login_box">
+          <ul class="tittle-login">
+            <li>
+              <h3>
+                <a data-toggle="tab" routerLink="/users/login">Login</a>
+              </h3>
+            </li>
+          </ul>
+
+          <div class="container-fluid">
+            <div class="row">
+              <div class="login-box">
+                <form novalidate [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)" #formDir="ngForm">
+                  <div class="form-group">
+                    <label for="email">Nombre de usuario:</label>
+                    <input type="email" id="email" class="form-control" formControlName="email" required>
+                    <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                      <div *ngIf="email.errors.required">Este campo es requerido</div>
+                      <div *ngIf="email.errors.pattern">Campo inválido</div>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="power">Contraseña</label>
+                    <input type="password" id="password" class="form-control" formControlName="password" required>
+                    <div *ngIf="password.errors && (password.dirty || password.touched)" class="alert alert-danger">
+                      <div *ngIf="password.errors.required">Este campo es requerido</div>
+                    </div>
+                    <div></div>
+                  </div>
+                  <div class="form-group alert alert-danger fade in" *ngIf="errorLogin != null">
+                    <button class="close" (click)="errorLogin = null">&times;</button>
+                    {{ errorLogin }}
+                  </div>
+
+                  <button type="submit" class="btn btn-accept btn-lg" [disabled]="loginForm.invalid">Ingresar</button>
+                </form>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="example-container">
+  <mat-toolbar class="toolbar">
+    <h1 class="app-name">FARLEY DIAZ TEST</h1>
+    <div class="user-info">
+      <button mat-icon-button  class="btn-user">
+          <mat-icon class="glyphicon glyphicon-user"></mat-icon>
+          {{ (user | async)?.firstName }}
+      </button>
+      <app-sign-out></app-sign-out>
+    </div>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="example-sidenav-container">
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+
+  </mat-sidenav-container>
+</div>
