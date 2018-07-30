@@ -1,15 +1,11 @@
 import { Injectable } from '@angular/core';
 import { UserDta } from './UserDta';
-import { Observable, combineLatest } from 'rxjs';
-import { Router } from '@angular/router';
-import { map } from 'rxjs/operators';
 
 @Injectable()
 export class UserService {
 
   constructor(
-    private userDta: UserDta,
-    public router: Router
+    private userDta: UserDta
   ) {
   }
 
@@ -18,7 +14,7 @@ export class UserService {
       this.userDta.loginWithMail(email, password)
         .then(info  => {
           if (info != null) {
-            resolve('/users/home');
+            resolve('/categories');
           }
         })
         .catch(error => {
@@ -38,13 +34,18 @@ export class UserService {
     });
   }
 
-  public signOutUser(): void {
-    this.userDta.signOutUser().then((status: boolean) => {
-      this.router.navigate(['users/login']);
-    })
-    .catch(() => {
-      console.error('Error al cerrar sesion');
-    });
+  public signOutUser(): Promise<any> {
+		return new Promise((resolve, reject) => {
+			this.userDta.signOutUser()
+			.then((status: boolean) => {
+				if(status){
+					resolve(status);
+				} else {
+					throw("Error al cerrar sesion")
+				}
+			})
+			.catch(err => reject(err));
+		})
   }
 
 }

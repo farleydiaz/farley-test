@@ -20,7 +20,7 @@ export class ComponentLayoutsBack implements OnDestroy, OnInit {
       //   console.log("info", );
       //   if (info) {
       //     this.user = {...info};
-      //   }
+      //   } 
       // });
 
   }

@@ -1,18 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../../providers/user/UserService';
+import { Router } from '../../../../node_modules/@angular/router';
 
 @Component({
   selector: 'app-sign-out',
   templateUrl: './signOut.html',
   styleUrls: ['./signOut.scss']
 })
-export class SignOut implements OnInit {
-  constructor(public userService: UserService) { }
+export class SignOut {
+  constructor(
+		public userService: UserService,
+		public router: Router) { }
 
-  ngOnInit() { }
 
   public closeSesion(): void {
-    this.userService.signOutUser();
+		this.userService.signOutUser()
+		.then(() => {
+			this.router.navigate(['login']);
+		});
   }
 
 }

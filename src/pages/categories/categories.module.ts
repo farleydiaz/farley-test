@@ -1,9 +1,8 @@
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { PageCategories } from './categories';
-import { MatCardModule } from '@angular/material/card';
+import { CategoryCardModule } from '../../components/categories/card/card.module';
 
 const routes: Routes = [
   { path: '', component: PageCategories }
@@ -15,10 +14,8 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    RouterModule.forChild(routes),
-    MatCardModule,
+		RouterModule.forChild(routes),
+		CategoryCardModule
   ],
   exports: [
     PageCategories
