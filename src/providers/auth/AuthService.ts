@@ -1,6 +1,5 @@
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore } from 'angularfire2/firestore';
-import * as Firebase from 'firebase';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
@@ -28,8 +27,8 @@ export class AuthService {
         );
     }
 
-    public canRead(user: User, expectedRoles: string[]) {
-        let allowAcces: Boolean = false;
+    public canRead(user: User, expectedRoles: string[]): boolean {
+        let allowAcces: boolean = false;
         for (const role of expectedRoles) {
             if (user.roles[role]) {
                 allowAcces = true;

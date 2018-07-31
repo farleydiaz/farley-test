@@ -15,7 +15,7 @@ export class SecurityGuard implements CanActivate {
         const expectedRoles = next.data.expectedRole;
         return this.auth.user$.pipe(
             take(1),
-            map((user: any) => user && (user.status === 1) && this.auth.canRead(user, expectedRoles) ? true : false),
+            map((user: any) => user && (user.status === 1) && this.auth.canRead(user, expectedRoles)),
             tap(canView => {
                     if (!canView) {
                         this.router.navigate(['login']);

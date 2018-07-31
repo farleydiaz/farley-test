@@ -13,10 +13,7 @@ export class PageCategoriesViewCategory implements OnInit, OnDestroy {
   private paramSubscription: Subscription;
   public categoryId: string;
 
-  constructor(
-    private route: ActivatedRoute) {
-    
-
+  constructor(private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {

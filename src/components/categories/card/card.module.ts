@@ -7,6 +7,7 @@ import {
 	MatCardModule, 
 	MatMenuModule 
 } from '@angular/material';
+import { RouterModule } from '../../../../node_modules/@angular/router';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import {
     MatIconModule,
 		MatCardModule,
 		MatMenuModule,
-		MatIconModule
+		MatIconModule,
+		RouterModule
   ],
   exports: [
     CategoryCard,

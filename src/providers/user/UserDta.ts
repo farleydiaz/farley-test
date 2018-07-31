@@ -3,9 +3,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class UserDta {
-  constructor(
-    private firebaseAuth: AngularFireAuth
-  ) {}
+  constructor(private firebaseAuth: AngularFireAuth) {}
 
   public loginWithMail(email: string, password: string): Promise<any> {
     return new Promise((resolve, reject) => {

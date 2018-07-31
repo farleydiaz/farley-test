@@ -16,13 +16,6 @@ export class ComponentLayoutsBack implements OnDestroy, OnInit {
 
   ngOnInit(){
     this.user = this.auth.user$;
-      // this.userSubscription = this.auth.user$.subscribe((info: any) => {
-      //   console.log("info", );
-      //   if (info) {
-      //     this.user = {...info};
-      //   } 
-      // });
-
   }
 
   ngOnDestroy(): void {

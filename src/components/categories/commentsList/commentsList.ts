@@ -13,7 +13,6 @@ export class CategoryCommentsList implements OnInit {
   public comments: Observable<CategoryComment>
   constructor(private categoriesService: CategoriesService) { } 
 
-
   public ngOnInit() {
     this.comments = this.categoriesService.getComments(this.idCategory);
   }

@@ -1,4 +1,4 @@
-<div class="categories-container">
+<div class="categories-container" >
 	<button class="button-primary" [routerLink]="['/categories/form']">Nueva categoría</button>
-  <category-card  *ngFor="let category of categories" [idCategory]="category" (selectCategory)="goToCategory($event)"></category-card>
+  <category-card  *ngFor="let category of categories$ | async" [idCategory]="category.id" (selectCategory)="goToCategory($event)"></category-card>
 </div>

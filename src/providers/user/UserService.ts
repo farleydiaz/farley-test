@@ -4,9 +4,7 @@ import { UserDta } from './UserDta';
 @Injectable()
 export class UserService {
 
-  constructor(
-    private userDta: UserDta
-  ) {
+  constructor(private userDta: UserDta) {
   }
 
   public loginWithMail(email: string, password: string): Promise<any> {

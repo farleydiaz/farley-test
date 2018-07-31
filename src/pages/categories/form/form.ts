@@ -15,7 +15,7 @@ import { Category } from '../../../interfaces/Category';
 export class PageCategoriesForm implements OnInit, OnDestroy {
   private paramSubscription: Subscription;
   public formCategory: FormGroup;
-  private categoryId: string;
+  public categoryId: string;
 
   constructor(
     private categoriesService: CategoriesService, 
@@ -27,7 +27,14 @@ export class PageCategoriesForm implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.createForm();
     this.paramSubscription = this.route.params.subscribe(params => {
-      this.categoryId = params['categoryId'];
+			if(params['categoryId']){
+				this.categoryId = params['categoryId'];
+				this.categoriesService.getCategoryOnce(this.categoryId)
+				.then((data: Category) => {
+					this.formCategory.controls['description'].setValue(data.description);
+					this.formCategory.controls['title'].setValue(data.title);
+				})
+			}
     });
   }
   
@@ -40,20 +47,26 @@ export class PageCategoriesForm implements OnInit, OnDestroy {
 
   sendForm(): void{
     if (this.formCategory.valid) {
+			const category: Category = {
+				description: this.formCategory.controls['description'].value,
+				title: this.formCategory.controls['title'].value,
+			}
+
+			let promiseSendForm: Promise<any>;
       if(this.categoryId !== null){
-        const category: Category = {
-          commentsCount: 0,
-          date: new Date(),
-          description: this.formCategory.controls['description'].value,
-          title: this.formCategory.controls['title'].value,
-          userName: "Farley Diaz",
-          status: 1
-        }
-        this.categoriesService.createCategory(category)
-        .then(() => {
-		  	  this.router.navigate(['categories']);
-        })
-      };
+				category.commentsCount = 0;
+				category.date = new Date();
+				category.userName = "Farley Diaz";
+				category.status = 1;
+        promiseSendForm = this.categoriesService.createCategory(category)
+			} else {
+        promiseSendForm = this.categoriesService.updateCategory(category, this.categoryId)
+			}
+
+			promiseSendForm
+			.then(() => {
+				this.router.navigate(['categories']);
+			})
     }
   }
 

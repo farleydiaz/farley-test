@@ -2,6 +2,8 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { CategoriesService } from '../../../providers/categories/CategoriesService';
+import { Observable } from '../../../../node_modules/rxjs';
+import { Category } from '../../../interfaces/Category';
 
 @Component({
   selector: 'app-page-categories-home',
@@ -11,17 +13,14 @@ import { CategoriesService } from '../../../providers/categories/CategoriesServi
 })
 export class PageCategoriesHome implements OnInit {
   
-  public categories : Array<string>;
+  public categories$ : Observable<Category[]>;
 
   constructor(
     private categoriesService: CategoriesService,
 		public router: Router) {}
 
   ngOnInit(): void {
-    this.categoriesService.getAllCategories()
-    .then((categories: Array<string>) => {
-      this.categories = categories;
-    })
+    this.categories$ = this.categoriesService.getAllCategories();
   }
 
   goToCategory(idCategory: string): void {    

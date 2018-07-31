@@ -2,7 +2,7 @@
   <button class="button-primary" [routerLink]="['/categories']">Atrás</button>
   <mat-card class="form-container">
     <mat-card-header>
-      <h4> Nueva categoría </h4>
+      <h4> {{(categoryId !== null) ? 'Editar': 'Nueva' }} categoría </h4>
     </mat-card-header>
     <mat-card-content>
 
@@ -28,7 +28,7 @@
           </div>
         </div>
         <div class="row">
-          <button type="submit" class="button-primary col-sm-2 pull-right" [disabled]="!formCategory.valid">Crear</button>
+          <button type="submit" class="button-primary col-sm-2 pull-right" [disabled]="!formCategory.valid">{{(categoryId !== null) ? 'Editar': 'Crear' }} </button>
         </div>
       </form>
 

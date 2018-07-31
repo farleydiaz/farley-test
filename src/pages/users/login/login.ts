@@ -1,14 +1,12 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { UserService } from '../../../providers/user/UserService';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-page-user-login',
   templateUrl: './login.html',
-  styleUrls: [ './login.scss' ],
-  providers: [Location, {provide: LocationStrategy, useClass: PathLocationStrategy}]
+  styleUrls: [ './login.scss' ]
 })
 export class PageUserLogin implements OnInit {
   loginForm: FormGroup;
@@ -17,7 +15,6 @@ export class PageUserLogin implements OnInit {
   errorLogin: string;
   constructor(
     private userService: UserService,
-    private location: Location,
     public router: Router
   ) {}
 
