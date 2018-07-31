@@ -1,16 +1,16 @@
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PageCategories } from './categories';
-import { CategoryCardModule } from '../../components/categories/card/card.module';
+import { PageCategoriesHome } from './home';
+import { CategoryCardModule } from '../../../components/categories/card/card.module';
 
 const routes: Routes = [
-  { path: '', component: PageCategories }
+  { path: '', component: PageCategoriesHome }
 ];
 
 @NgModule({
   declarations: [
-    PageCategories,
+    PageCategoriesHome,
   ],
   imports: [
     CommonModule,
@@ -18,7 +18,7 @@ const routes: Routes = [
 		CategoryCardModule
   ],
   exports: [
-    PageCategories
+    PageCategoriesHome
   ]
 })
-export class PageCategoriesModule {}
+export class PageCategoriesHomeModule {}

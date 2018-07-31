@@ -1,0 +1,17 @@
+@import "./src/scss/_variables";
+:host {      
+    
+    .mat-list-item {
+        background-color: $grey-light; 
+        border-radius: 15px;
+        margin-bottom: 5px;
+    }
+
+    .comment-time {
+        color: $grey;
+    }
+    
+    h5 {
+        font-size: $h5 !important;
+    } 
+}

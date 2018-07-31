@@ -9,6 +9,8 @@ import { UserDta } from './user/UserDta';
 import { UserService } from './user/UserService';
 import { AuthService } from './auth/AuthService';
 import { SecurityGuard } from './auth/SecurityGuard';
+import { CategoriesDta } from './categories/CategoriesDta';
+import { CategoriesService } from './categories/CategoriesService';
 
 @NgModule({
  imports: [
@@ -18,6 +20,8 @@ import { SecurityGuard } from './auth/SecurityGuard';
  ],
  providers: [
     AuthService,
+    CategoriesService,
+    CategoriesDta,
     SecurityGuard,
     UserDta,
     UserService, 

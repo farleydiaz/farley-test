@@ -8,13 +8,37 @@ import { SecurityGuard } from '../providers/auth/SecurityGuard';
 const FRONTROUTES: Routes = [
     {
       path: 'login',
-      loadChildren: '../pages/login/login.module#PageUserLoginModule',
+      loadChildren: '../pages/users/login/login.module#PageUserLoginModule',
     },
 ];
 const BACKROUTES: Routes = [
     {
       path: 'categories',
-      loadChildren: '../pages/categories/categories.module#PageCategoriesModule',
+      loadChildren: '../pages/categories/home/home.module#PageCategoriesHomeModule',
+      canActivate: [SecurityGuard],
+      data: {
+        expectedRole: ['admin']
+      }
+    },
+    {
+      path: 'categories/form/:categoryId',
+      loadChildren: '../pages/categories/form/form.module#PageCategoriesFormModule',
+      canActivate: [SecurityGuard],
+      data: {
+        expectedRole: ['admin']
+      }
+    },
+    {
+      path: 'categories/form',
+      loadChildren: '../pages/categories/form/form.module#PageCategoriesFormModule',
+      canActivate: [SecurityGuard],
+      data: {
+        expectedRole: ['admin']
+      }
+    },
+    {
+      path: 'category/:categoryId',
+      loadChildren: '../pages/categories/viewCategory/viewCategory.module#PageCategoriesViewCategoryModule',
       canActivate: [SecurityGuard],
       data: {
         expectedRole: ['admin']

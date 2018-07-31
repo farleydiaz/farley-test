@@ -1,0 +1,37 @@
+<div class="categories-container">
+  <button class="button-primary" [routerLink]="['/categories']">Atrás</button>
+  <mat-card class="form-container">
+    <mat-card-header>
+      <h4> Nueva categoría </h4>
+    </mat-card-header>
+    <mat-card-content>
+
+      <form [formGroup]="formCategory" (ngSubmit)="sendForm()">
+        <div class="row">
+          <div class="form-group">
+            <label for="title">Titulo</label>
+            <input formControlName="title" id="title" name="text" type="text" class="form-control" autocomplete="off" />
+            <div *ngIf="formCategory.controls['title'].invalid && (formCategory.controls['title'].dirty || formCategory.controls['title'].touched)"
+              class="alert alert-danger" style="margin-top: 10px">
+              <div *ngIf="formCategory.controls['title'].errors.required">Campo requerido</div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group">
+            <label for="description">Descripción</label>
+            <textarea formControlName="description" row="3" id="description" name="description" class="form-control"></textarea>
+            <div *ngIf="formCategory.controls['description'].invalid && (formCategory.controls['description'].dirty || formCategory.controls['description'].touched)"
+              class="alert alert-danger" style="margin-top: 10px">
+              <div *ngIf="formCategory.controls['description'].errors.required">Campo requerido</div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <button type="submit" class="button-primary col-sm-2 pull-right" [disabled]="!formCategory.valid">Crear</button>
+        </div>
+      </form>
+
+    </mat-card-content>
+  </mat-card>
+</div>

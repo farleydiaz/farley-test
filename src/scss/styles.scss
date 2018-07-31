@@ -140,15 +140,9 @@ a {
 }
 
 nav.navbar.navbar-inverse {
-    border: 0px;
-    border-radius: 0px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
-}
-
-a#menu-toggle {
-    color: #fff!important;
-    line-height: 2.1em;
-    cursor: pointer;
+  border: 0px;
+  border-radius: 0px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
 }
 
 .example-container {
@@ -178,146 +172,34 @@ h1.example-app-name {
   flex: 1 0 auto;
 }
 
-.hamburguer {
-  background-color: $color-null;
-  border-color: $color-null;
-}
-
-.hamburguer::hover {
-  border-color: $color-null;
-}
-
 .icon-menu {
     color: #fff!important;
     font-size: 2.2em;
     line-height: 1.6em;
     margin: 10px 20px 10px 6px;
 }
-/* --FIN MENU--*/
 
 
- #page-content-wrapper {
-  width: 100%;
-  position: absolute;
-  padding: 60px 10px 15px 10px;
+.button-primary {
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: $white;
+  background-color: $blue-dark;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 2px $black;
 }
 
-#wrapper.toggled #sidebar-wrapper {
-    width: 0;
-  }
+.button-primary:hover {background-color: $black}
 
-#sidebar-wrapper {
-  position: fixed;
-  left: 250px;
-  top: 65px;
-  width: 100%;
-  height: 100%;
-  margin-left: -250px;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 9;
-  display: none;
+.button-primary:active {
+  background-color: $black;
+  box-shadow: 0 2px $grey-dark;
+  transform: translateY(2px);
 }
-
-.sidebar-nav {
-  width: 260px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  background: #eee;
-  overflow-y: auto;
-  position: fixed;
-  height: 100%;
-  bottom: 0px;
-  padding-top: 63px;
-  li {
-    text-indent: 10px;
-    line-height: 50px;
-    a {
-      display: block;
-      text-decoration: none;
-      color: #333;
-      font-weight: bold;
-      font-size: 16px;
-      &:active, &:focus {
-        text-decoration: none;
-        color: #0091EA;
-        background: rgba(189, 189, 189, 0.2);
-        border-left: 5px solid #0091EA;
-      }
-    }
-  }
-  > .sidebar-brand {
-    a {
-      color: #999999;
-      &:hover {
-        color: #fff;
-        background: none;
-        border: none;
-      }
-    }
-    height: 65px;
-    font-size: 18px;
-    line-height: 60px;
-    background: #fff;
-    border-bottom: 1px solid #bbb;
-  }
-}
-
-/* --BOTONES--*/
-.btn-reject {
-    background-color: $red;
-    border-color: $red;
-    color: white;
-}
-
-.btn-accept {
-    background-color: $green;
-    border-color: $green;
-    color: white;
-}
-/* --FIN BOTONES--*/
-
-
-/* --TABLAS--*/
-
-.table {
-  thead th {
-    vertical-align: bottom;
-    color: $violet;
-    border-bottom: 2px solid #dee2e6;
-  }
-  td, th {
-    padding: .75rem;
-    vertical-align: top;
-    border-top: 1px solid #dee2e6;
-  }
-}
-
-.table-striped tbody tr:nth-of-type(odd) {
-  background-color: rgba(0, 0, 0, 0.05);
-}
-
-/* --CAJAS--*/
-
-.box-general {
-  margin-top: $mgin20;
-  margin-bottom: $mgin20;
-  padding: $mgin20;
-  margin: auto;
-  width: 100%;
-  background: #fff;
-  box-shadow: 0 0px 5px rgba(0, 0, 0, 0.26);
-}
-
-.box-inner {
-  margin-top: $mgin20;
-  padding: $mgin15;
-  margin: auto;
-  width: 100%;
-  background: #fff;
-  box-shadow: 0 0px 5px rgba(0, 0, 0, 0.26);
-}
-
 
 
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';

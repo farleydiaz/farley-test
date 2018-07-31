@@ -1,0 +1,9 @@
+@import "./src/scss/_variables";
+
+:host {
+    .categories-container{
+        margin: 10px;
+        padding: 30px;
+        height: 100%;
+    }
+}

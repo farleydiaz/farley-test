@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
-import { UserService } from '../../providers/user/UserService';
+import { UserService } from '../../../providers/user/UserService';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({

@@ -1,31 +1,27 @@
 <mat-card class="example-card">
 	<mat-card-header>
-
 		<div mat-card-avatar class="example-header-image"></div>
-		<mat-card-title>Farley Diaz</mat-card-title>
-		<mat-card-subtitle>Title</mat-card-subtitle>
-			<div class="optionsButton" >
-				<mat-icon class="glyphicon glyphicon-option-horizontal" [matMenuTriggerFor]="menu"></mat-icon>
-			</div>
-			<mat-menu #menu="matMenu">
-				<button mat-menu-item>
-					<span>Editar</span>
-				</button>
-				<button mat-menu-item>
-					<span>Eliminar</span>
-				</button>
-			</mat-menu>
-		
+		<mat-card-title>{{ (category | async)?.userName }}</mat-card-title>
+		<mat-card-subtitle>{{ (category | async)?.title }}</mat-card-subtitle>
+		<div class="optionsButton">
+			<mat-icon class="glyphicon glyphicon-option-horizontal" [matMenuTriggerFor]="menu"></mat-icon>
+		</div>
+		<mat-menu #menu="matMenu">
+			<button mat-menu-item>
+				<span>Editar</span>
+			</button>
+			<button mat-menu-item>
+				<span>Eliminar</span>
+			</button>
+		</mat-menu>
 	</mat-card-header>
 	<mat-card-content>
 		<p>
-			Description
-			The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-			A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-			bred for hunting.
+			{{ (category | async)?.description }}
 		</p>
 	</mat-card-content>
 	<mat-card-actions>
-		<label class="comments-label">5 Comentarios</label>
+		<label class="comments-label" (click)="goToCategory()">{{ (category | async)?.commentsCount }} {{((category | async)?.commentsCount == 1) ? 'Comentario' : 'Comentarios' }}</label>
 	</mat-card-actions>
-</mat-card>  
+	<ng-content></ng-content>
+</mat-card>
